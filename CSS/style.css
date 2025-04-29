@@ -1,0 +1,100 @@
+:root {
+    --primary: #336699;
+}
+
+a {
+    text-decoration: none;
+}
+
+.bg {
+    background-color: var(--primary);
+}
+
+.clr {
+    color: var(--primary);
+}
+
+.tw {
+    text-wrap: wrap;
+}
+
+::placeholder {
+    color: black;
+}
+
+.btn-primary {
+    background-color: var(--primary) !important;
+    width: 100%;
+}
+
+/*Admin Page*/
+.section-1 {
+    background-image: url('../IMG/Admin/Adminnn.png');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 82vh;
+    width: 100%;
+}
+
+input {
+    width: 100%;
+    height: 35px;
+    border: none;
+    border-bottom: 2px solid var(--primary);
+    background-color: transparent;
+outline: none;
+}
+
+form {
+    background: rgb(255, 255, 255, 0.8);
+    border-radius: 10px;
+    border: 1px solid var(--primary);
+
+}
+
+
+.fa-arrow-left {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+    z-index: 1000;
+
+}
+
+.fa-arrow-left:hover {
+    background-color: rgba(0, 0, 0, 0.4);
+    transform: scale(1.2);
+
+}
+/*Student Details Page*/
+.section-2 {
+    background-image: url('../IMG/Student/Student_page_BG.jpg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 82vh;
+    width: 100%;
+}
+
+/*Media Query for Header*/
+@media screen and (max-width: 576px) {
+    header .logos {
+        width: 55%;
+        height: 50%;
+    }
+
+    header span {
+        font-size: 10px !important;
+    }
+
+}

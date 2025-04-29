@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <link rel="shortcut icon" href="IMG/FAVICON.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            overflow-y: auto;
+        }
+
+        .form-select {
+            width: 95%;
+            height: 35px;
+            border: none;
+            border-radius: 0;
+            border-bottom: 2px solid var(--primary);
+            background-color: transparent;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .toggle-label {
+            display: block;
+            background-color: hsla(210, 50%, 40%, 0.0);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            color: #000;
+            width: 100%;
+            border-radius: 5px;
+            border: 1px solid #336699;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .section-2 {
+            height: 110vh;
+            background-attachment: fixed;
+        }
+
+        .btn-primary:hover {
+            background-color: rgba(var(--primary), 50%) !important;
+            color: #000 !important;
+        }
+
+        .text-danger {
+            color: red !important;
+        }
+
+        .toggle-label i {
+            transition: transform 0.3s ease-in-out;
+            margin-left: 5px;
+        }
+
+        .rotate {
+            transform: rotate(-180deg);
+        }
+
+        .fa-arrow-left {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            font-size: 20px;
+            cursor: pointer;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255);
+            padding: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.3s ease;
+            z-index: 1000;
+
+        }
+
+        .fa-arrow-left:hover {
+            background-color: rgba(0, 0, 0, 0.4);
+            transform: scale(1.2);
+
+        }
+    </style>
+</head>
+
+<body>
+    <header class="d-flex justify-content-around bg p-2 align-items-center">
+        <img src="IMG/Logo-James.png" alt="Logo" class="img-fluid logos">
+        <center>
+            <span class="text-white tw textss" style="font-size: 25px; font-weight: bold;">Dr Y C JAMES YEN GOVT
+                POLYTECHNIC, KUPPAM</span>
+        </center>
+        <img src="IMG/Sbtet-Logo.png" alt="Sbtet-Logo" class="img-fluid logos">
+    </header>
+    <section class="section-2 d-flex justify-content-around align-items-center container-fluid mt-5">
+        <nav class="fixed-top"> <i class="fa fa-arrow-left" aria-hidden="true"></i></nav>
+        <form action="student.php" method="POST" id="registrationForm" class="p-4 m-5 col-md-4">
+            <center>
+                <h6 class="tw" style="font-weight: bold;">Online Registration For College Sports and Games</h6>
+            </center>
+            <div class="student_name m-2 mt-3">
+                <input type="text" name="student_name" id="student_name" placeholder="Name" autocomplete="off"
+                    required><br>
+            </div>
+
+            <div class="pin_num m-2 mt-3">
+                <input type="text" name="pin_number" id="pin_num" placeholder="Pin Number" autocomplete="off"
+                    required><br>
+            </div>
+            <select class="form-select mt-3 ms-2" name="year" aria-label="Default select example" required>
+                <option selected disabled>Year</option>
+                <option value="1">I Year</option>
+                <option value="2">II Year</option>
+                <option value="3">III Year</option>
+            </select>
+            <select class="form-select mt-3 ms-2 mb-4" name="branch" aria-label="Default select example" required>
+                <option value="" disabled selected>Branch</option>
+                <option value="DCME">DCME</option>
+                <option value="DECE">DECE</option>
+                <option value="DEEE">DEEE</option>
+                <option value="DME">DME</option>
+            </select>
+            <div class="phno m-2 mt-3">
+                <input type="tel" name="phno" id="phno" placeholder="Mobile Number" autocomplete="off"
+                    pattern="[0-9]{10}" maxlength="10" required>
+            </div>
+
+            <div class="mb-4 mt-4">
+                <input id="Running" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer1" for="Running">Running <i
+                        class="fa-solid fa-angle-down "> </i></label>
+                <div id="checkboxContainer1" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mts100" name="options[]" value="100mts">
+                        <label class="form-check-label" for="mts100">100Mts</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mts200" name="options[]" value="200mts">
+                        <label class="form-check-label" for="mts200">200Mts</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mts400" name="options[]" value="400mts">
+                        <label class="form-check-label" for="mts400">400Mts</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mts800" name="options[]" value="800mts">
+                        <label class="form-check-label" for="mts800">800Mts</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mts1500" name="options[]" value="1500mts">
+                        <label class="form-check-label" for="mts1500">1500Mts</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mtsrel100" name="options[]"
+                            value="100mtsrel">
+                        <label class="form-check-label" for="mtsrel100">4 x 100Mts Relay</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="mtsrel400" name="options[]"
+                            value="400mtsrel">
+                        <label class="form-check-label" for="mtsrel400">4 x 400Mts Relay</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 2: Jumps -->
+            <div class="mb-4">
+                <input id="Jumps" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer2" for="Jumps">Jumps<i
+                        class="fa-solid fa-angle-down "> </i></label>
+                <div id="checkboxContainer2" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="highjump" name="options[]"
+                            value="High Jump">
+                        <label class="form-check-label" for="highjump">High Jump</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="longjump" name="options[]"
+                            value="Long Jump">
+                        <label class="form-check-label" for="longjump">Long Jump</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="triplejump" name="options[]"
+                            value="Triple Jump">
+                        <label class="form-check-label" for="triplejump">Triple Jump</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 3: Throws -->
+            <div class="mb-4">
+                <input id="Throws" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer3" for="Throws">Throws <i
+                        class="fa-solid fa-angle-down "> </i> </label>
+                <div id="checkboxContainer3" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="javelin" name="options[]"
+                            value="Javelin Throw">
+                        <label class="form-check-label" for="javelin">Javelin Throw</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="discus" name="options[]"
+                            value="Discus Throw">
+                        <label class="form-check-label" for="discus">Discus Throw</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="shotput" name="options[]" value="Shot Put">
+                        <label class="form-check-label" for="shotput">Shot Put</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 4: Badminton -->
+            <div class="mb-4"> <input id="Badminton" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer4" for="Badminton">Badminton <i
+                        class="fa-solid fa-angle-down "> </i></label>
+                <div id="checkboxContainer4" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="shuttle_singles" name="options[]"
+                            value="Shuttle Singles">
+                        <label class="form-check-label" for="shuttle_singles">Shuttle Singles</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="shuttle_doubles" name="options[]"
+                            value="Shuttle Doubles">
+                        <label class="form-check-label" for="shuttle_doubles">Shuttle Doubles</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="ball_badminton" name="options[]"
+                            value="Ball Badminton">
+                        <label class="form-check-label" for="ball_badminton">Ball Badminton</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 5: Indoor Games -->
+            <div class="mb-4">
+                <input id="IndoorGames" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer5" for="IndoorGames">Indoor Games <i
+                        class="fa-solid fa-angle-down "> </i></label>
+                <div id="checkboxContainer5" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="tt_singles" name="options[]"
+                            value="Table Tennis Singles">
+                        <label class="form-check-label" for="tt_singles">Table Tennis Singles</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="tt_doubles" name="options[]"
+                            value="Table Tennis Doubles">
+                        <label class="form-check-label" for="tt_doubles">Table Tennis Doubles</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="chess" name="options[]" value="Chess">
+                        <label class="form-check-label" for="chess">Chess</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Section 6: Other Games -->
+            <div class="mb-4">
+                <input id="OtherGames" style="display: none;">
+                <label class="toggle-label" data-target="checkboxContainer6" for="OtherGames">Other Games <i
+                        class="fa-solid fa-angle-down "> </i></label>
+                <div id="checkboxContainer6" class="checkbox-container">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="volleyball" name="options[]"
+                            value="Volleyball">
+                        <label class="form-check-label" for="volleyball">Volleyball</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" id="kabaddi" name="options[]" value="Kabaddi">
+                        <label class="form-check-label" for="kabaddi">Kabaddi</label>
+                    </div>
+                </div>
+            </div>
+            <p class="text-danger"> Note : Check Details Before Submitting !</p>
+            <button type="submit" class="btn btn-primary pb-3 pt-3" id="continueButton">Submit</button>
+
+        </form>
+        <!-- Confirmation Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" aria-labelledby="confirmationModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="confirmationModalLabel">Confirm Your Details</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p><strong>Name:</strong> <span id="confirmName"></span></p>
+                        <p><strong>Pin Number:</strong> <span id="confirmPin"></span></p>
+                        <p><strong>Year:</strong> <span id="confirmYear"></span></p>
+                        <p><strong>Branch:</strong> <span id="confirmBranch"></span></p>
+                        <p><strong>Phone Number:</strong> <span id="confirmPhno"></span></p>
+                        <p><strong>Selected Games:</strong> <span id="confirmGames"></span></p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="confirmSubmit">Confirm & Submit</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </section>
+    <script>document.addEventListener("DOMContentLoaded", function () {
+            let pinField = document.getElementById("pin_num");
+            let yearField = document.querySelector("select[name='year']");
+            let branchField = document.querySelector("select[name='branch']");
+            let phoneField = document.getElementById("phno");
+            let form = document.getElementById("registrationForm");
+            let confirmModal = new bootstrap.Modal(document.getElementById('confirmationModal'));
+            let confirmSubmitButton = document.getElementById("confirmSubmit");
+
+            // Function to auto-fill Year & Branch based on PIN
+            pinField.addEventListener("input", function () {
+                let pinValue = this.value.trim().toUpperCase(); // Convert input to uppercase
+                let pinPattern = /^(\d{2})101-(CM|EC|EE|M)-(\d{3})$/i; // Case-insensitive regex
+                let match = pinValue.match(pinPattern);
+
+                if (match) {
+                    let pinYear = match[1];  // Extract first two digits (year)
+                    let pinBranch = match[2].toUpperCase(); // Extract branch code and convert to uppercase
+                    let pinNumber = parseInt(match[3]); // Extract last 3 digits as a number
+
+                    // Map the extracted year to academic year
+                    let yearMapping = { "22": "3", "23": "2", "24": "1" };
+                    let mappedYear = yearMapping[pinYear] || "";
+
+                    // Map the extracted branch code
+                    let branchMapping = { "CM": "DCME", "EC": "DECE", "EE": "DEEE", "M": "DME" };
+                    let mappedBranch = branchMapping[pinBranch] || "";
+                    if (!yearMapping[pinYear]) {
+                        alert("Error: Invalid Year! Only PINs from 22, 23, and 24 are allowed.");
+                        this.value = "";
+                        resetFields();
+                        return;
+                    }
+                    // Validate PIN Number Range based on Branch
+                    let isValid = false;
+                    if ((mappedBranch === "DCME" || mappedBranch === "DME") && pinNumber >= 0 && pinNumber <= 33) {
+                        isValid = true;
+                    } else if ((mappedBranch === "DECE" || mappedBranch === "DEEE") && pinNumber >= 0 && pinNumber <= 66) {
+                        isValid = true;
+                    }
+
+                    if (!isValid) {
+                        alert("Error: Invalid PIN NUMBER! Enter a valid PIN number.");
+                        this.value = ""; 
+                        yearField.value = "";
+                        branchField.value = "";
+                        yearField.disabled = false;
+                        branchField.disabled = false;
+                        return;
+                    }
+
+                    // Set dropdown values and disable them for manual selection
+                    if (mappedYear) {
+                        yearField.value = mappedYear;
+                        yearField.disabled = true;
+                    } else {
+                        yearField.value = "";
+                        yearField.disabled = false;
+                    }
+
+                    if (mappedBranch) {
+                        branchField.value = mappedBranch;
+                        branchField.disabled = true;
+                    } else {
+                        branchField.value = "";
+                        branchField.disabled = false;
+                    }
+                } else {
+                    // Reset if PIN format is incorrect
+                    yearField.value = "";
+                    branchField.value = "";
+                    yearField.disabled = false;
+                    branchField.disabled = false;
+                }
+            });
+
+            // Show confirmation modal before submitting
+            form.addEventListener("submit", function (event) {
+                event.preventDefault(); // Stop form submission initially
+
+                let studentName = document.getElementById("student_name").value.trim();
+                let pinNum = pinField.value.trim().toUpperCase(); // Convert to uppercase before validation
+                let year = yearField.value;
+                let branch = branchField.value;
+                let phone = phoneField.value.trim();
+
+                // Validate input
+                if (!/^(\d{2})101-(CM|EC|EE|M)-\d{3}$/i.test(pinNum)) {
+                    alert("Error: Invalid PIN format! Use format: YY101-BB-NNN (e.g., YY101-BB-NNN).");
+                    return;
+                }
+
+                if (year === "" || branch === "") {
+                    alert("Error: Year or Branch is missing. Check PIN number.");
+                    return;
+                }
+
+                if (!/^\d{10}$/.test(phone)) {
+                    alert("Error: Enter a valid 10-digit mobile number.");
+                    return;
+                }
+
+                let selectedGames = [];
+                document.querySelectorAll(".form-check-input:checked").forEach(checkbox => {
+                    selectedGames.push(checkbox.value);
+                });
+
+                if (selectedGames.length === 0) {
+                    alert("Error: Please select at least one game before submitting.");
+                    return;
+                }
+
+                // Fill modal with user details
+                document.getElementById("confirmName").textContent = studentName;
+                document.getElementById("confirmPin").textContent = pinNum;
+                document.getElementById("confirmYear").textContent = year;
+                document.getElementById("confirmBranch").textContent = branch;
+                document.getElementById("confirmPhno").textContent = phone;
+                document.getElementById("confirmGames").textContent = selectedGames.join(", ");
+
+                // Show the modal
+                confirmModal.show();
+            });
+
+            // Final submission after confirmation
+            confirmSubmitButton.addEventListener("click", function () {
+                form.submit();
+            });
+
+            // Go back to home page
+            document.querySelector('.fa-arrow-left').addEventListener('click', function () {
+                window.location.href = 'index.html';
+            });
+
+            // JavaScript for toggling checkboxes
+            document.querySelectorAll(".toggle-label").forEach(label => {
+                label.addEventListener("click", function () {
+                    let targetId = this.getAttribute("data-target");
+                    let checkboxes = document.getElementById(targetId);
+
+                    // Close all other sections
+                    document.querySelectorAll(".checkbox-container").forEach(container => {
+                        if (container !== checkboxes) {
+                            container.style.display = "none";
+                        }
+                    });
+
+                    // Toggle the clicked section
+                    checkboxes.style.display = checkboxes.style.display === "none" ? "block" : "none";
+                    this.querySelector("i").classList.toggle("rotate");
+                });
+            });
+
+            // Hide all checkboxes initially
+            document.querySelectorAll(".checkbox-container").forEach(container => {
+                container.style.display = "none";
+            });
+
+            // Add label highlighting for checked checkboxes
+            document.querySelectorAll(".form-check-input").forEach(checkbox => {
+                checkbox.addEventListener("change", function () {
+                    const label = this.nextElementSibling;
+                    if (this.checked) {
+                        label.classList.add("checked-label");
+                    } else {
+                        label.classList.remove("checked-label");
+                    }
+                });
+            });
+        });
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
