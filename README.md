@@ -3,6 +3,8 @@
 A web-based application designed to manage registrations for sports and games events, typically within an educational institution or organization.  
 This system allows admins to handle participant data, event details, and registrations efficiently.
 
+🌐 **Live Preview**: [Click Here to View](https://sportsregistration.free.nf/)
+
 ---
 
 ## 🚀 Features
@@ -22,6 +24,3 @@ This system allows admins to handle participant data, event details, and registr
 - PHP (for backend logic)
 - MySQL (for database)
 - Bootstrap
-
-
-🌐 **Live Preview**: [https://sportsregistration.free.nf/]{(Click)}
