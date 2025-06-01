@@ -22,3 +22,6 @@ This system allows admins to handle participant data, event details, and registr
 - PHP (for backend logic)
 - MySQL (for database)
 - Bootstrap
+
+
+🌐 **Live Preview**: https://devarajbhojanapu.netlify.app/
