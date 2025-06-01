@@ -24,4 +24,4 @@ This system allows admins to handle participant data, event details, and registr
 - Bootstrap
 
 
-🌐 **Live Preview**: https://sportsregistration.free.nf/
+🌐 **Live Preview**: [https://sportsregistration.free.nf/]{(Click)}
