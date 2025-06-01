@@ -3,7 +3,12 @@
 A web-based application designed to manage registrations for sports and games events, typically within an educational institution or organization.  
 This system allows admins to handle participant data, event details, and registrations efficiently.
 
-🌐 **Live Preview**: [Click Here to View](https://sportsregistration.free.nf/)
+---
+
+## 🌐 Live Preview
+
+- 🔗 [Netlify Deployment](https://collegesportsregistration.netlify.app/)
+- 🔗 [Free Hosting (by InfinityFree)](https://sportsregistration.free.nf/)
 
 ---
 
@@ -24,3 +29,5 @@ This system allows admins to handle participant data, event details, and registr
 - PHP (for backend logic)
 - MySQL (for database)
 - Bootstrap
+
+
